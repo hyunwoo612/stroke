@@ -47,7 +47,7 @@ async def upload_file(file: UploadFile = File(...)):
             shutil.copyfileobj(file.file, buffer)
 
         # PDF를 이미지로 변환
-        images = convert_from_path(upload_path, dpi=300, output_folder="static", fmt="png")
+        images = convert_from_path(upload_path, dpi=300, output_folder="static", fmt="png", poppler_path='poppler/poppler-24/Library/bin')
         processed_images = []
 
         for i, image in enumerate(images):
